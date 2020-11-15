@@ -25,16 +25,7 @@
                         <br>
                         <button id="add-to-cart">Add to Cart</button>
                         <br>
-                        <a class="flip" href="#">Go to Cart <span>&rarr;</span></a>
-                    <!--
-                    <form action="">
-                        <h2>Sign In</h2>
-                        <input type="email" name="" placeholder="Enter Email" id="">
-                        <input type="password" name="" placeholder="Password" id="">
-                        <input type="submit" value="Login">
-                        <p class="signup">don't have an account ? <a href="#" onclick="javascript:doToggle();">Sign Up</a></p>
-                    </form>
-                    -->
+                        <a href="#" onclick="javascript:doToggle();">Go to Cart <span>&rarr;</span></a>
                     </div>
                 </div>
             </div>
@@ -42,38 +33,40 @@
                 <div class="listBox">
                     <!-- A class group é dada para os elementos terem display: block-->
                     <div class="group">
-                        <h3>Shopping Cart</h3>
-                        <label for="limit">Limite</label>
-                        <input id="limit" type="number"/>
-                        <table>
-                            <thead>
-                                <tr>
-                                <th>Item</th>
-                                <th>Un</th>
-                                <th>Qty</th>
-                                <th>Value</th>
-                                <th>X</th>
-                                </tr>
-                            <thead>
-                            <tbody id="table-body-1">
-                        
-                            </tbody>
-                        </table>
-                        <h3>TOTAL</h3><span id="total">0</span><span>€</span>
-                        <br>
-                        <a href="">Go to List</a>
+                            <h3>Shopping Cart</h3>
+                            <label for="limit">Limit:</label>
+                            <input id="limit" type="number"/>
+                        <div id="scroll">
+                            <table>
+                                <thead id="header">
+                                    <tr>
+                                    <th>Item</th>
+                                    <th>Un</th>
+                                    <th>Qty</th>
+                                    <th>Value</th>
+                                    <th>X</th>
+                                    </tr>
+                                <thead>
+                            
+                                <tbody id="table-body">
+                                    <tr>
+                                        <th>MAça</th>
+                                        <th>1.30</th>
+                                        <th>1</th>
+                                        <th>1.30</th>
+                                        <th>X</th>
+                                    </tr>
+                            
+                                </tbody>
+                                
+                            </table>
+                        </div>
+
+                    <div id="end-section">
+                        <h2>TOTAL<span id="total">0</span><span>€</span></h2>
+                        <a href="#" onclick="javascript:doToggle();">Go to List <span>&rarr;</span></a>
                     </div>
-                    <!--
-                    <form action="">
-                        <h2>Create An Account</h2>
-                        <input type="text" name="" placeholder="Username" id="">
-                        <input type="email" name="" placeholder="Enter Email" id="">
-                        <input type="password" name="" placeholder="Create Password" id="">
-                        <input type="password" name="" placeholder="Confirm Password" id="">
-                        <input type="submit" value="Sign Up">
-                        <p class="signup">Already have an Account <a href="#" onclick="javascript:doToggle();">Sign In</a></p>
-                    </form>
-                    -->
+                 </div>
                 </div>
                 <div class="imgBox">
                     <img class="flip" src="img2.jpg" alt="">
@@ -86,5 +79,11 @@
 
 <!-- SCRIPTS -->
     <script src="script.js"></script>
+    <script type="text/javascript">
+        function doToggle(){
+            var container = document.querySelector('.container');
+                container.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

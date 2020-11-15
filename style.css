@@ -20,7 +20,7 @@
     --black: #282828;
     /* font-size */
     --xl: 18px;
-    --md: 15px;
+    --md: 12px;
     --sm: 10px;
     /* font-weight */
     --bold: 600;
@@ -34,11 +34,12 @@
 section {
     position: relative;
 	min-height: 100vh;
-	background: var(--pale-yellow);
+	background: var(--pale-orange);
 	display: flex;
 	padding: 20px;
 	justify-content: center;
-	align-items: center;
+    align-items: center;
+    transition: 0.5s;
 }
 
 section .container {
@@ -47,11 +48,11 @@ section .container {
 	height: 500px;
 	background: #fff;
     box-shadow: var(--bs-new);
-    overflow: hidden; /**/
+    overflow: hidden; 
 }
 
 section .container .user {
-    position: abssolute; /**/
+    position: absolute; 
     top:0;
     left:0;
     width:100%;
@@ -67,10 +68,14 @@ section .container .user .imgBox {
     height:100%;
     background-color: #fff;
     transition:0.5s;
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    -ms-transition:0.5s;
+    -o-transition:0.5s;
 }
 
 
-section .container .user .imgBx img{
+section .container .user .imgBox img{
     position:absolute;
     top:0;
     left:0;
@@ -88,7 +93,12 @@ section .container .user .listBox {
     justify-content: center;
     align-items: center;
     padding:40px;
-    padding-top: 60px;
+    padding-top: 50px;
+    transition:0.5s;
+    -webkit-transition:0.5s;
+    -moz-transition:0.5s;
+    -ms-transition:0.5s;
+    -o-transition:0.5s;
 }
 
 section .container .user .listBox .group{
@@ -104,14 +114,46 @@ section .container .user .listBox h3 {
     letter-spacing: 2px;
     text-align: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: var(--acid-orange);
+}
+
+section .container .user .listBox h2 {
+    font-size: var(--md);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
+    width: 100%;
+    color: var(--acid-orange);
+    display: inline;
+    margin-top: 10px;
+}
+
+ /* END SECTION / SUM */
+
+ #end-section {
+    position: absolute;
+    top: 330px;
+    width: 100%;
+}
+
+section .container .user .listBox .sum {
+    margin-bottom: 10px;
+}
+
+section .container .user .listBox span {
+    text-align: right;
+    display: inline;
+    padding-left: 10px;
 }
 
 section .container .user .listBox label {
     font-weight: var(--medium);
     font-size: var(--md);
-    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: grey;
 }
 
 section .container .user .listBox input{
@@ -145,15 +187,21 @@ section .container .user .listBox button{
     width:100%;
     background-color: var(--acid-orange);
     color:#fff;
-    cursor:pointer;
+    cursor: pointer;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
-    border: none;
+    border: 1px solid var(--acid-orange);
     padding: 12px 10px;
-    text-transform:uppercase;
+    text-transform: uppercase;
     margin-top: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+}
+
+section .container .user .listBox button:hover{
+    background-color: white;
+    color:var(--acid-orange);
+    border: 1px solid var(--acid-orange);
 }
 
 section .container .user .listBox a {
@@ -173,20 +221,30 @@ section .container .user .listBox a {
 
 section .container .user .listBox a:hover {
     border-bottom: 4px solid var(--acid-orange);
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 14px;
-    padding-left: 10px;
 }
 
+/*   TABLE   */
 
 section .container .user .listBox table, th, td {
     border: 1px solid var(--acid-orange);
     border-collapse: collapse;
     padding: 10px;
+    font-weight: var(--medium);
+    font-size: var(--sm);
+    color: var(--acid-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
 }
 
-section .container .user .listBox table, th {
+
+section .container .user .listBox table thead th { 
+    /* background-color: var(--pale-orange); */
+    font-weight: 800;
+
+}
+
+section .container .user .listBox table th {
     font-weight: var(--medium);
     font-size: var(--sm);
     color: var(--acid-orange);
@@ -199,22 +257,81 @@ section .container .user .listBox table {
     font-size: var(--sm);
     color: var(--black);
     width: 100%;
-    margin: 10px 0;
-    
 }
 
-/* MUDAR
+/*   SCROLL  */
 
-div {
-   // border: 1px solid var(--black);
+#scroll {
+    overflow: auto;
+    height: 186px;
+    width: 100%;
+    position: absolute;
 }
 
-table {
-    border-collapse: collapse;
-  }
-  
-  table, th, td {
-    border: 1px solid black;
-  }
+ #scroll::-webkit-scrollbar-track
+ {
+ 
+ border: 1px solid var(--acid-orange);
+ background-color: var(--white);
+ border-left: none;
+ }
+ 
+ #scroll::-webkit-scrollbar
+ {
+ width: 5px;
+ background-color: var(--white);
+ }
+ 
+ #scroll::-webkit-scrollbar-thumb
+ {
+ background-color: var(--acid-orange);
+ }
+ 
+ /* EVENTS? */
 
-*/
+ section .container .shoppingCart{
+    pointer-events: none;
+}
+section .container.active .shoppingCart{
+    pointer-events: initial;
+}
+
+section .container .shoppingCart .listBox{
+    left: 100%;
+}
+section .container.active .shoppingCart .listBox{
+    left: 0;
+}
+section .container .shoppingCart .imgBox{
+    left: -100%;
+}
+section .container.active .shoppingCart .imgBox{
+    left: 0;
+}
+
+section .container .shoppingList .listBox{
+    left:0;
+}
+section .container.active .shoppingList .listBox{
+    left: -100%;
+}
+section .container .shoppingList .imgBox{
+    left: 0;
+}
+section .container.active .shoppingList .imgBox{
+    left: 100%;
+}
+
+/* QUERYS */
+
+@media(max-width:991px){
+    section .container {
+        max-width: 400px;
+    }
+    section .container .imgBox {
+        display:none;
+    }
+    section .container .user .listBox {
+        width:100%;
+    }
+}
