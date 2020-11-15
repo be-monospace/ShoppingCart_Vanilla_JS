@@ -55,6 +55,7 @@
       
       fillProductList(products);
 
+      //Criar um botão que ao ser clicado crie uma order e adicione ao array orders, e mostre um alerta a informar que o produto foi adicionado ao carrinho
 
       function addToCart() {
         var productIndex = productList.value;
@@ -66,8 +67,18 @@
         total += order.value;
         totalElem.innerHTML = total;
       }
+
+      var infoAlert = document.getElementById("alert");
+
+      function addedToCartInfo() {
+        var info = infoAlert;
+        infoAlert.style.transition = "visibility 0.9s linear, opacity 0.9s linear";
+        infoAlert.style.visibility = "visible";
+      }
       
       addToCartBtn.addEventListener("click", addToCart);
+      addToCartBtn.addEventListener("click", addedToCartInfo);
+      
 
 
       function addLineToCart(order) {

@@ -61,7 +61,6 @@ section .container .user {
 
 }
 
-
 section .container .user .imgBox {
     position:relative;
     width:50%;
@@ -73,7 +72,6 @@ section .container .user .imgBox {
     -ms-transition:0.5s;
     -o-transition:0.5s;
 }
-
 
 section .container .user .imgBox img{
     position:absolute;
@@ -128,6 +126,19 @@ section .container .user .listBox h2 {
     color: var(--acid-orange);
     display: inline;
     margin-top: 10px;
+}
+
+/* ADDED TO CART INFO */
+
+section .container .user .listBox p {
+    visibility: hidden;
+    font-weight: var(--medium);
+    font-size: var(--sm);
+    color: var(--acid-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: right;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
 }
 
  /* END SECTION / SUM */
@@ -287,7 +298,7 @@ section .container .user .listBox table {
  background-color: var(--acid-orange);
  }
  
- /* EVENTS? */
+ /* EVENTS */
 
  section .container .shoppingCart{
     pointer-events: none;
