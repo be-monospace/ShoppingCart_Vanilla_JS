@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* colors */
+    --pale-yellow: #fce697;
+    --pale-orange: #f0d5c9;
+    --main-orange: #ff8e5e;
+    --acid-orange: #ff4d51;
+    --main-yellow: #fccb00;
+    --main-green: #00ae96;
+    --white: #fefefe;
+    --light-grey: #f5f5f5;
+    --black: #282828;
+    /* font-size */
+    --xl: 18px;
+    --md: 15px;
+    --sm: 10px;
+    /* font-weight */
+    --bold: 600;
+    --medium: 400;
+    /* box-shadow */
+    --bs-normal: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+    --bs-hover: 1px 1px 10px 2px rgba(0, 0, 0, 0.3);
+    --bs-new: 0 15px 50px rgba(255, 77, 80, 0.9);
+}
+
+section {
+    position: relative;
+	min-height: 100vh;
+	background: var(--pale-yellow);
+	display: flex;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+section .container {
+    position: relative;
+	width: 800px;
+	height: 500px;
+	background: #fff;
+    box-shadow: var(--bs-new);
+    overflow: hidden; /**/
+}
+
+section .container .user {
+    position: abssolute; /**/
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+
+}
+
+
+section .container .user .imgBox {
+    position:relative;
+    width:50%;
+    height:100%;
+    background-color: #fff;
+    transition:0.5s;
+}
+
+
+section .container .user .imgBx img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+section .container .user .listBox {
+    position:relative;
+    width:50%;
+    height:100%;
+    background-color: var(--white);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:40px;
+    padding-top: 60px;
+}
+
+section .container .user .listBox .group{
+    position:inherit; 
+    width:100%;
+    height:100%;
+}
+
+section .container .user .listBox h3 {
+    font-size: var(--xl);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    color: var(--acid-orange);
+}
+
+section .container .user .listBox label {
+    font-weight: var(--medium);
+    font-size: var(--md);
+    color: var(--black);
+}
+
+section .container .user .listBox input{
+    width:100%;
+    font-weight: var(--medium);
+    background-color: none;
+    padding:10px;
+    color:#333;
+    border: 1px solid var(--acid-orange);
+    outline:none;
+    font-size:14px;
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+section .container .user .listBox select{
+    width:100%;
+    font-weight: var(--medium);
+    background-color: none;
+    padding:10px;
+    color:#333;
+    border: 1px solid var(--acid-orange);
+    outline:none;
+    font-size:14px;
+    margin:8px 0;
+    letter-spacing: 2px;
+    border-color: var(--acid-orange);
+}
+
+section .container .user .listBox button{
+    width:100%;
+    background-color: var(--acid-orange);
+    color:#fff;
+    cursor:pointer;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: none;
+    padding: 12px 10px;
+    text-transform:uppercase;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+section .container .user .listBox a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform:uppercase;
+    text-decoration: none;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--acid-orange);
+    border-top: 1px solid var(--acid-orange);
+    color: var(--acid-orange);
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+section .container .user .listBox a:hover {
+    border-bottom: 4px solid var(--acid-orange);
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+}
+
+
+section .container .user .listBox table, th, td {
+    border: 1px solid var(--acid-orange);
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+section .container .user .listBox table, th {
+    font-weight: var(--medium);
+    font-size: var(--sm);
+    color: var(--acid-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+section .container .user .listBox table {
+    font-weight: var(--medium);
+    font-size: var(--sm);
+    color: var(--black);
+    width: 100%;
+    margin: 10px 0;
+    
+}
+
+/* MUDAR
+
+div {
+   // border: 1px solid var(--black);
+}
+
+table {
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+
+*/

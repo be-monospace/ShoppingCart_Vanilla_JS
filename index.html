@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="user shoppingList">
+                <div class="imgBox">
+                    <img src="img1.jpg" alt="Summery fresh fruit abstract illustration">
+                </div>
+                <div class="listBox">
+                    <div class="group">
+                        <h3>Shopping List</h3>
+                        <label for="products">Choose a product from list:</label>
+                        <br>
+                        <select id="products"></select>
+                        <br>
+                        <label for="qtd">Quantity:</label>
+                        <input id="qtd" type="number" placeholder="0"/>
+                        <br>
+                        <button id="add-to-cart">Add to Cart</button>
+                        <br>
+                        <a class="flip" href="#">Go to Cart <span>&rarr;</span></a>
+                    <!--
+                    <form action="">
+                        <h2>Sign In</h2>
+                        <input type="email" name="" placeholder="Enter Email" id="">
+                        <input type="password" name="" placeholder="Password" id="">
+                        <input type="submit" value="Login">
+                        <p class="signup">don't have an account ? <a href="#" onclick="javascript:doToggle();">Sign Up</a></p>
+                    </form>
+                    -->
+                    </div>
+                </div>
+            </div>
+            <div class="user shoppingCart">
+                <div class="listBox">
+                    <!-- A class group é dada para os elementos terem display: block-->
+                    <div class="group">
+                        <h3>Shopping Cart</h3>
+                        <label for="limit">Limite</label>
+                        <input id="limit" type="number"/>
+                        <table>
+                            <thead>
+                                <tr>
+                                <th>Item</th>
+                                <th>Un</th>
+                                <th>Qty</th>
+                                <th>Value</th>
+                                <th>X</th>
+                                </tr>
+                            <thead>
+                            <tbody id="table-body-1">
+                        
+                            </tbody>
+                        </table>
+                        <h3>TOTAL</h3><span id="total">0</span><span>€</span>
+                        <br>
+                        <a href="">Go to List</a>
+                    </div>
+                    <!--
+                    <form action="">
+                        <h2>Create An Account</h2>
+                        <input type="text" name="" placeholder="Username" id="">
+                        <input type="email" name="" placeholder="Enter Email" id="">
+                        <input type="password" name="" placeholder="Create Password" id="">
+                        <input type="password" name="" placeholder="Confirm Password" id="">
+                        <input type="submit" value="Sign Up">
+                        <p class="signup">Already have an Account <a href="#" onclick="javascript:doToggle();">Sign In</a></p>
+                    </form>
+                    -->
+                </div>
+                <div class="imgBox">
+                    <img class="flip" src="img2.jpg" alt="">
+                </div>
+            </div>  
+        </div>
+    </section>
+
+
+
+<!-- SCRIPTS -->
+    <script src="script.js"></script>
+</body>
+</html>
