@@ -3,8 +3,7 @@
     console.log("Teste");
 
     var tbody = document.getElementById("table-body"); // table body
-
-
+    var limitInput = document.getElementById("limit"); 
     var totalPrice = document.getElementById("total"); // soma valores carrinho compras
 
     var total = 0;
@@ -17,9 +16,10 @@
         this.price = price;
     }
 
-    function Order(product, qty) {
+    function Order(product, qtd) {
         this.product = product;
-        this.qty = qty;
+        this.qtd = qtd;
+        this.value = (this.qtd * this.product.price).toFixed(2);
     }
 
     // Inicializar um array com n products e um array de orders
@@ -82,35 +82,85 @@
 
 
       function addLineToCart(order) {
-  var orderLine = document.createElement("tr");
-  var itemCell = document.createElement("td");
-  var priceCell = document.createElement("td");
-  var qtdCell = document.createElement("td");
-  var valueCell = document.createElement("td");
-  var actionsCell = document.createElement("td");
-  var removeBtn = document.createElement("button");
-  //var editBtn = document.createElement("button");
-  itemCell.innerHTML = order.product.name;
-  priceCell.innerHTML = order.product.price;
-  qtdCell.innerHTML = order.qtd;
-  valueCell.innerHTML = order.value;
-  removeBtn.innerHTML = "x";
-  //editBtn.innerHTML = "Editar";
+                var orderLine = document.createElement("tr");
+                var itemCell = document.createElement("td");
+                var priceCell = document.createElement("td");
+                var qtdCell = document.createElement("td");
+                var valueCell = document.createElement("td");
+                var actionsCell = document.createElement("td");
+                var removeBtn = document.createElement("button");
+                //var editBtn = document.createElement("button");
+                itemCell.innerHTML = order.product.name;
+                priceCell.innerHTML = order.product.price;
+                qtdCell.innerHTML = order.qtd;
+                valueCell.innerHTML = order.value;
+                removeBtn.innerHTML = "x";
+                //editBtn.innerHTML = "Editar";
 
-  //removeBtn.addEventListener("click", removeLine);
+                //removeBtn.addEventListener("click", removeLine);
 
-  orderLine.appendChild(itemCell);
-  orderLine.appendChild(priceCell);
-  orderLine.appendChild(qtdCell);
-  orderLine.appendChild(valueCell);
-  actionsCell.appendChild(removeBtn);
-  //actionsCell.appendChild(editBtn);
-  orderLine.appendChild(actionsCell);
-  tbody.appendChild(orderLine);
+                orderLine.appendChild(itemCell);
+                orderLine.appendChild(priceCell);
+                orderLine.appendChild(qtdCell);
+                orderLine.appendChild(valueCell);
+                actionsCell.appendChild(removeBtn);
+                //actionsCell.appendChild(editBtn);
+                orderLine.appendChild(actionsCell);
+                tbody.appendChild(orderLine);
 
-  var limit = limitInput.value;
-  paintLine(orderLine, order, limit);
+                var limit = limitInput.value;
+                paintLine(orderLine, order, limit);
 }
+
+    /* REMOVE BUTTON */
+
+    var limitInput = document.getElementById("limit");
+
+    function removeLine(event) {
+    
+        var event = event || window.event;
+        var target = event.target || event.srcElement;
+        console.log(event.target.tagName);
+        if (event.target.tagName !== "BUTTON") {
+        return;
+        }
+    
+        var row = event.target.parentNode.parentNode;
+        
+        //var row = this.parentElement.parentElement;
+    
+        var index = row.rowIndex - 1;
+        var order = orders[index];
+        orders.splice(index, 1);
+        console.log(orders)
+        total -= order.value;
+    
+        tbody.removeChild(row);
+        totalElem.innerHTML = total;
+    }
+    
+    tbody.addEventListener("click", removeLine);
+
+    /* RED LINE */
+
+    function paintLine(row, order, limit){
+        if (limit < order.value){
+            row.style.backgroundColor = "red";
+            return;
+        }
+        
+        row.style.backgroundColor = "white";
+      }
+      
+      function updateBackgroundColor() {
+        var limit = limitInput.value;
+        var rows = tbody.getElementsByTagName("tr");
+        for (var i = 0; i < orders.length; i++) {
+          paintLine(rows[i], orders[i], limit);
+        }
+      }
+      
+      limitInput.addEventListener("change", updateBackgroundColor);
 
 
 
