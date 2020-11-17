@@ -35,8 +35,10 @@
     var qtdInput = document.getElementById("qtd"); //Qntd input
     
     function fillProductList(products) {
+      // primeira de opção  linha vazia 
         var option = document.createElement("option");
         productList.appendChild(option);
+      //
         for (var i = 0; i < products.length; i++) {
           var option = document.createElement("option");
           option.innerHTML = products[i].name + " " + products[i].price;
@@ -84,7 +86,7 @@
         info.style.visibility = "hidden";
       }
 
-      productList.addEventListener("change", removeAdeaddedToCartInfo); // quando o utilizador clica no <select> o "alert" desaparece
+      productList.addEventListener("click", removeAdeaddedToCartInfo); // quando o utilizador clica no <select> o "alert" desaparece, também se pode usar o attribute "change"
 
 
 // ADICIONAR PRODUTOS À LISTA DE COMPRAS
@@ -105,6 +107,7 @@
                 qtdCell.innerHTML = order.qtd;
                 valueCell.innerHTML = order.value.toFixed(2); //2 casas decimais na tabela
                 removeBtn.innerHTML = "x";
+                removeBtn.addEventListener("click", removeTableLine);
                 
                 orderLine.appendChild(itemCell);
                 orderLine.appendChild(priceCell);
@@ -119,8 +122,33 @@
 
 // REMOVE BTN
 
+var tBody = document.getElementById("table-body");
+
     function removeTableLine() {
+        
+      // console.log("worked");
       
+        var productIndex = productList.value;
+        var currentProduct = products[productIndex];
+        var getTr = this.parentElement.parentElement;
+        //var productValue = productList.price;
+
+        console.log(productIndex);
+        console.log(currentProduct);
+        //console.log(productValue);
+
+        //remover a tr do tbody
+
+        tBody.removeChild(getTr);
+
+        //update o TOTAL
+
+        total -= orders.value;
+        totalElem.innerHTML = total // 2 casas decimais no total
+
+        //return productIndex = currentProduct-1;
+        
+
     }
 
 

@@ -184,8 +184,8 @@ section .container .user .listBox select{
     font-weight: var(--medium);
     background-color: none;
     padding:10px;
-    color:#333;
-    border: 1px solid var(--acid-orange);
+    color: var(--acid-orange);
+    border-bottom: 1px solid var(--acid-orange);
     outline:none;
     font-size:14px;
     margin:8px 0;
