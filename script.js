@@ -6,6 +6,7 @@
     var limitInput = document.getElementById("limit"); 
     var totalPrice = document.getElementById("total"); // soma valores carrinho compras
 
+    var totalElem = document.getElementById("total");
     var total = 0;
 
 
@@ -108,8 +109,8 @@
                 orderLine.appendChild(actionsCell);
                 tbody.appendChild(orderLine);
 
-                var limit = limitInput.value;
-                paintLine(orderLine, order, limit);
+               /* var limit = limitInput.value;
+                paintLine(orderLine, order, limit); */
 }
 
     /* REMOVE BUTTON */
@@ -143,6 +144,8 @@
 
     /* RED LINE */
 
+    /*
+
     function paintLine(row, order, limit){
         if (limit < order.value){
             row.style.backgroundColor = "red";
@@ -161,6 +164,8 @@
       }
       
       limitInput.addEventListener("change", updateBackgroundColor);
+
+      */
 
 
 
