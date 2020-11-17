@@ -29,7 +29,7 @@
         new Product("sugar", 0.89),
         new Product("rice", 0.90),
         new Product("apple", 1.05),
-        new Product("soap", 1),
+        new Product("soap", 1.00),
         new Product("onions", 1.19),
         new Product("toothpaste", 2.49),
         new Product("cofee", 2.90)
