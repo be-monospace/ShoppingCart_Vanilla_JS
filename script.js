@@ -141,10 +141,21 @@ var tBody = document.getElementById("table-body");
 
         tBody.removeChild(getTr);
 
-        //update o TOTAL
+        //--------------- update o TOTAL
+
+        var index = row.rowIndex - 1;
+        var order = orders[index];
+        orders.splice(index, 1);
+        console.log(orders)
+        total -= order.value;
+    
+        tbody.removeChild(row);
+        totalElem.innerHTML = total;
 
         total -= orders.value;
         totalElem.innerHTML = total // 2 casas decimais no total
+
+        // ----------------
 
         //return productIndex = currentProduct-1;
         
@@ -153,7 +164,26 @@ var tBody = document.getElementById("table-body");
 
 
 
-// LIMITE INPUT + RED LINE
+// LIMITE INPUT + RED LINE --------------
+
+function paintLine(row, order, limit){
+  if (limit < order.value){
+      row.style.backgroundColor = "red";
+      return;
+  }
+  
+  row.style.backgroundColor = "white";
+}
+
+function updateBackgroundColor() {
+  var limit = limitInput.value;
+  var rows = tbody.getElementsByTagName("tr");
+  for (var i = 0; i < orders.length; i++) {
+    paintLine(rows[i], orders[i], limit);
+  }
+}
+
+limitInput.addEventListener("change", updateBackgroundColor);
 
 
 
