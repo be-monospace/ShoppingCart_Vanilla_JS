@@ -141,49 +141,50 @@ var tBody = document.getElementById("table-body");
 
         tBody.removeChild(getTr);
 
-        //--------------- update o TOTAL
-
-        var index = row.rowIndex - 1;
-        var order = orders[index];
-        orders.splice(index, 1);
-        console.log(orders)
-        total -= order.value;
-    
-        tbody.removeChild(row);
-        totalElem.innerHTML = total;
+        //update o TOTAL
 
         total -= orders.value;
         totalElem.innerHTML = total // 2 casas decimais no total
 
-        // ----------------
-
         //return productIndex = currentProduct-1;
         
+        //------------------ UPDATE O TOTAL QUANDO LINHA É REMOVIDA ------------
 
     }
 
 
+// LIMITE INPUT + RED LINE
 
-// LIMITE INPUT + RED LINE --------------
+    var limitInput = document.getElementById("limit");
 
-function paintLine(row, order, limit){
-  if (limit < order.value){
-      row.style.backgroundColor = "red";
-      return;
-  }
-  
-  row.style.backgroundColor = "white";
-}
+    paintLine () {
 
-function updateBackgroundColor() {
-  var limit = limitInput.value;
-  var rows = tbody.getElementsByTagName("tr");
-  for (var i = 0; i < orders.length; i++) {
-    paintLine(rows[i], orders[i], limit);
-  }
-}
+    }
 
-limitInput.addEventListener("change", updateBackgroundColor);
+    function changeRowColor(){
+      console.log(this.value);
+      var rows = tbody.getElementsByTagName("tr");
+     
+
+      for (var i = 0; 1 < rows.length; i++) {
+        var order = orders[i];
+
+        if (order.value > this.value) {
+            rows[i].style.backgroundColor = "#f0d5c9";
+        }
+
+        rows[i].style.backgroundColor = "white";
+
+      }
+      
+    }
+
+    limitInput.addEventListener("change", changeRowColor);
+    addToCartBtn.addEventListener("click", paintLine);
+
+
+
+
 
 
 
